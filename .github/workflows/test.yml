@@ -28,8 +28,8 @@ jobs:
           echo "Running main.py..."
           python main.py
         elif [[ "${{ github.ref }}" == "refs/heads/sandbox" ]]; then
-          echo "Running develop.py..."
-          python develop.py
+          echo "Running sandbox.py..."
+          python sandbox.py
         else
           echo "No script to run for this branch."
         fi
