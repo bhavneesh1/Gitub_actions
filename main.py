@@ -19,7 +19,7 @@ if __name__ == "__main__":
         exit(0)
 
     for ini_file in ini_files:
-        if ini_file == "test1.ini":
+        if ini_file == "new.ini":
             print("new.ini")
-        elif ini_file == "test2.ini":
+        elif ini_file == "new2.ini":
             pprint("new2.ini")
