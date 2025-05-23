@@ -1,9 +1,12 @@
+import os
+import subprocess
 import requests
-WEBHOOK_URL = "https://webhook.site/e2223437-27df-4118-8324-0cbaf4358621"  # <-- Replace with your own
-message="This is main branch"
-# Send POST request
-try:
-    response = requests.post(WEBHOOK_URL, data=message)
-    print(f"POST Status: {response.status_code}")
-except Exception as e:
-    print(f"Error posting message: {e}")
+if __name__ == "__main__":
+    # Get list of changed files in the last commit
+    result = subprocess.run(
+        ["git", "diff", "--name-only", "HEAD^", "HEAD"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+    print(result)
