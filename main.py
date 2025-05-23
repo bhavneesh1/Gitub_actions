@@ -2,7 +2,7 @@ import subprocess
 
 
 
-f __name__ == "__main__":
+if __name__ == "__main__":
     # Get list of changed files in the last commit
     result = subprocess.run(
         ["git", "diff", "--name-only", "HEAD^", "HEAD"],
