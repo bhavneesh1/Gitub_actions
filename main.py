@@ -9,4 +9,13 @@ if __name__ == "__main__":
         stderr=subprocess.PIPE,
         text=True
     )
-    print(result)
+    changed_files = result.stdout.strip().split("\n")
+    ini_files = [f for f in changed_files if f in ["new.ini", "new2.ini"]]
+
+    if not ini_files:
+        print("No relevant .ini files changed.")
+        exit(0)
+
+    for ini_file in ini_files:
+        if ini_file == "new.ini":
+            print("this is new ")
