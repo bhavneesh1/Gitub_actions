@@ -9,6 +9,7 @@ if __name__ == "__main__":
         stderr=subprocess.PIPE,
         text=True
     )
+    print(result)
     changed_files = result.stdout.strip().split("\n")
     ini_files = [f for f in changed_files if f in ["new.ini", "new2.ini"]]
 
