@@ -4,7 +4,7 @@ import requests
 if __name__ == "__main__":
     # Get list of changed files in the last commit
     result = subprocess.run(
-        ["git", "diff", "--name-only", "HEAD^", "HEAD"],
+        ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD"],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True
