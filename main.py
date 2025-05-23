@@ -19,3 +19,7 @@ if __name__ == "__main__":
     for ini_file in ini_files:
         if ini_file == "new.ini":
             print("this is new ")
+        elif ini_file == "new.ini":
+            print("this is new2 ")
+        else:
+            print("none file modified")
