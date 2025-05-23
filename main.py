@@ -1,4 +1,4 @@
-import os
+
 import subprocess
 import requests
 if __name__ == "__main__":
