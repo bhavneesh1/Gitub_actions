@@ -1,6 +1,9 @@
 import subprocess
 
-def get_changed_files():
+
+
+f __name__ == "__main__":
+    # Get list of changed files in the last commit
     result = subprocess.run(
         ["git", "diff", "--name-only", "HEAD^", "HEAD"],
         stdout=subprocess.PIPE,
@@ -8,25 +11,15 @@ def get_changed_files():
         text=True
     )
 
-    if result.returncode != 0:
-        print("Error running git diff:", result.stderr)
-        return []
+    changed_files = result.stdout.strip().split("\n")
+    ini_files = [f for f in changed_files if f in ["new.ini", "new2.ini"]]
 
-    return result.stdout.strip().split("\n")
+    if not ini_files:
+        print("No relevant .ini files changed.")
+        exit(0)
 
-if __name__ == "__main__":
-    changed_files = get_changed_files()
-
-    print("Changed files:", changed_files)
-
-    new_ini = "new.ini"
-    new2_ini = "new2.ini"
-
-    if new_ini in changed_files:
-        print("✅ new.ini was changed")
-
-    if new2_ini in changed_files:
-        print("✅ new2.ini was changed")
-
-    if new_ini not in changed_files and new2_ini not in changed_files:
-        print("ℹ️ No relevant .ini files were changed.")
+    for ini_file in ini_files:
+        if ini_file == "test1.ini":
+            print("new.ini")
+        elif ini_file == "test2.ini":
+            pprint("new2.ini")
